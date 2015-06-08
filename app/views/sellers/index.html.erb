@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Sellers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Password hash</th>
+      <th>Location</th>
+      <th>String</th>
+      <th>Product</th>
+      <th>Product price</th>
+      <th>We pay access token</th>
+      <th>Wepay account</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sellers.each do |seller| %>
+      <tr>
+        <td><%= seller.name %></td>
+        <td><%= seller.email %></td>
+        <td><%= seller.password_hash %></td>
+        <td><%= seller.location %></td>
+        <td><%= seller.string %></td>
+        <td><%= seller.product %></td>
+        <td><%= seller.product_price %></td>
+        <td><%= seller.we_pay_access_token %></td>
+        <td><%= seller.wepay_account_id %></td>
+        <td><%= link_to 'Show', seller %></td>
+        <td><%= link_to 'Edit', edit_seller_path(seller) %></td>
+        <td><%= link_to 'Destroy', seller, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Seller', new_seller_path %>
